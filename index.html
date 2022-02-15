@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            counter: {{ samnumber }}
+            <br/>
+                
+                <div>
+                    <button v-on:click="add">追加</button>
+                    <button v-on:click="del(index)">リセット</button>
+                </div>
+            
+      
+            <tbody>
+                <tr v-for="(user, number) in users" v-bind:key="user.id">
+                    <td><input id="ennu"v-model="user.text"></td>
+                    <td><input v-model="user.number" type="number"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        
+
+        <script>       
+            const App = {
+             el: '#app',
+            data(){
+                return{
+                    users:[{ text:'', number:''}],
+                    samnumber: 0
+              }
+            },
+            methods:{
+                add: function(){
+                    this.users.push({ text: '',number: ''})
+                    
+                    this.samnumber = this.samnumber + this.users[0].number
+                    
+
+                    
+
+                   
+                },
+                del: function(index){
+                    this.users=[{ text:'', number:''}]
+                    this.samnumber = 0
+                },
+            }
+           }
+           app1 = Vue.createApp(App)
+        app1.mount('#app')
+
+        </script>
+    
+</body>
+
+</html>
