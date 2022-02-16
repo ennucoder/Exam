@@ -36,15 +36,43 @@
             data(){
                 return{
                     users:[{ text:'', number:''}],
-                    samnumber: 0
+                    samnumber: 0,
+                    i :0
+                    
+                    
+                    
+                    
               }
             },
             methods:{
                 add: function(){
+                    
+                    x = this.i
+                    
+                    
                     this.users.push({ text: '',number: ''})
                     
-                    this.samnumber = this.samnumber + this.users[0].number
                     
+                    
+
+                    
+                    console.log(this.users[x].number)                    
+                    this.samnumber = this.samnumber + this.users[x].number
+
+                    this.i  = this.i + 1
+                    console.log(x)
+
+                    
+
+                    
+
+
+
+                    
+
+                    
+
+                   
 
                     
 
@@ -53,6 +81,8 @@
                 del: function(index){
                     this.users=[{ text:'', number:''}]
                     this.samnumber = 0
+                    this.x = 0
+                    this.i = 0
                 },
             }
            }
